@@ -1,6 +1,4 @@
-# flutter_bad_jokes_app
-
-Flutter Bad Jokes App.
+# Flutter Bad Jokes App.
 
 ## Getting Started
 
