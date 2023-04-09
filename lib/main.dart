@@ -54,6 +54,25 @@ class _JokesAppState extends State<JokesApp> {
 
   var myIndex = 0;
 
+  changeIndex(String direction) {
+    switch (direction) {
+      case "up":
+        setState(() {
+          if (myIndex < jokes.length - 1) {
+            myIndex++;
+          }
+        });
+        break; // The switch statement must be told to exit, or it will execute every case.
+      case "down":
+        setState(() {
+          if (myIndex > 0) {
+            myIndex--;
+          }
+        });
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -101,11 +120,12 @@ class _JokesAppState extends State<JokesApp> {
                 children: [
                   FloatingActionButton(
                     onPressed: () {
-                      setState(() {
-                        if (myIndex > 0) {
-                          myIndex--;
-                        }
-                      });
+                      changeIndex("down");
+                      // setState(() {
+                      //   if (myIndex > 0) {
+                      //     myIndex--;
+                      //   }
+                      // });
                     },
                     backgroundColor: Colors.orange,
                     child: const Icon(
@@ -116,11 +136,12 @@ class _JokesAppState extends State<JokesApp> {
                   const SizedBox(width: 20),
                   FloatingActionButton(
                     onPressed: () {
-                      setState(() {
-                        if (myIndex < jokes.length - 1) {
-                          myIndex++;
-                        }
-                      });
+                      changeIndex("up");
+                      // setState(() {
+                      //   if (myIndex < jokes.length - 1) {
+                      //     myIndex++;
+                      //   }
+                      // });
                     },
                     backgroundColor: Colors.orange,
                     child: const Icon(
